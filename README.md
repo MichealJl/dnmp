@@ -26,5 +26,13 @@
 6、修改nginx的配置文件 nginx/conf.d/default.conf
 ![Image text](https://github.com/MichealJl/dnmp/blob/master/6.jpg)
 
+![Image text](https://github.com/MichealJl/dnmp/blob/master/7.jpg)
+
+![Image text](https://github.com/MichealJl/dnmp/blob/master/8.jpg)
+
+![Image text](https://github.com/MichealJl/dnmp/blob/master/9.jpg)
+
 7、重启nginx服务
 
+8、在你的项目目录下创建index.php 输出phpinfo(); 
+![Image text](https://github.com/MichealJl/dnmp/blob/master/10.jpg)
