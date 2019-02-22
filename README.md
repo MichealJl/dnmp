@@ -24,6 +24,7 @@
 ![Image text](https://github.com/MichealJl/dnmp/blob/master/5.jpg)
 
 6、修改nginx的配置文件 nginx/conf.d/default.conf
+![Image text](https://github.com/MichealJl/dnmp/blob/master/6.jpg)
 
 7、重启nginx服务
 
