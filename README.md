@@ -18,6 +18,7 @@
 ![Image text](https://github.com/MichealJl/dnmp/blob/master/3.jpg)
 
 5、执行docker-compose up -d  （额。。安装php的那些扩展挺慢的 你可以酌情 修改php目录下的Dockerfile，等用的到那些扩展的时候 再装）
+![Image text](https://github.com/MichealJl/dnmp/blob/master/4.jpg)
 
 6、修改nginx的配置文件 nginx/conf.d/default.conf
 
