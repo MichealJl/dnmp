@@ -1,0 +1,33 @@
+APPLICATION=/wwwroot/server/project
+
+# mysql env
+MYSQL_VERSION=latest
+MYSQL_ROOT_PWD=root
+MYSQL_CONFD_DIR=/wwwroot/server/mysql/conf
+MYSQL_LOGS_PATH=/wwwroot/server/mysql/logs
+MYSQL_CNF_PATH=/wwwroot/server/mysql/my.cnf
+MYSQL_PORT=3306
+
+# redis env
+REDIS_VERSION=latest
+REDIS_DATA=/wwwroot/server/redis/data
+REDIS_PORT=6379
+
+# php-fpm 7.2 
+PHP72_INI_PATH=/wwwroot/server/php72/php.ini
+PHP72_LOGS_PATH=/wwwroot/server/php72/logs
+PHP72_FPM_PORT=9000
+# php-fpm 5.6
+PHP56_INI_PATH=/wwwroot/server/php56/php.ini
+PHP56_LOGS_PATH=/wwwroot/server/php56/logs
+PHP56_FPM_PORT=9001
+
+# nginx env
+NGINX_CONFD_DIR=/wwwroot/server/nginx/conf.d
+NGINX_LOGS_PATH=/wwwroot/server/nginx/wwwlogs
+NGINX_CONF_PATH=/wwwroot/server/nginx/nginx.conf
+NGINX_HTTP_PORT=80
+NGINX_HTTPS_PORT=443
+NGINX_TAG=alpine
+NGINX_SSL_PATH=/wwwroot/server/nginx/ssl
+

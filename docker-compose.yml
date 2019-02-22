@@ -1,0 +1,73 @@
+version: '2'
+services:
+### mysql ###
+  mysql:
+    image: mysql:${MYSQL_VERSION}
+    networks:
+      - lnmpnet
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PWD}
+    volumes:
+      - ${MYSQL_CONFD_DIR}:/etc/mysql/conf.d
+      - ${MYSQL_LOGS_PATH}:/logs
+      - ${MYSQL_CNF_PATH}:/etc/mysql/my.cnf
+    ports:
+      - "${MYSQL_PORT}:3306"
+### redis ###
+  redis:
+    image: redis:${REDIS_VERSION}
+    volumes:
+      - ${REDIS_DATA}:/data
+    networks:
+      - lnmpnet
+    ports:
+      - "${REDIS_PORT}:6379"
+### php7.2 fpm ###
+  php-fpm72:
+    build: ./php72
+    volumes:
+      - ${APPLICATION}:/www
+      - ${PHP72_INI_PATH}:/usr/local/etc/php/php.ini
+      - ${PHP72_LOGS_PATH}:/phplogs
+    networks:
+      - lnmpnet
+    ports:
+      - "${PHP72_FPM_PORT}:9000"
+    links:
+        - redis
+        - mysql
+### php56 fpm ###
+  php-fpm56:
+    build: ./php56
+    volumes:
+      - ${APPLICATION}:/www
+      - ${PHP56_INI_PATH}:/usr/local/etc/php/php.ini
+      - ${PHP56_LOGS_PATH}:/phplogs
+    networks:
+      - lnmpnet
+    ports:
+      - "${PHP56_FPM_PORT}:9000"
+    links:
+        - redis
+        - mysql
+### nginx ###
+  nginx:
+    image: nginx:${NGINX_TAG}
+    networks:
+      - lnmpnet
+    volumes:
+      - ${APPLICATION}:/www
+      - ${NGINX_CONFD_DIR}:/etc/nginx/conf.d
+      - ${NGINX_LOGS_PATH}:/wwwlogs
+      - ${NGINX_CONF_PATH}:/etc/nginx/nginx.conf
+      - ${NGINX_SSL_PATH}:/etc/nginx/ssl
+    ports:
+      - "${NGINX_HTTP_PORT}:80"
+      - "${NGINX_HTTPS_PORT}:443"
+    links:
+      - php-fpm72:php72
+      - php-fpm56:php56
+networks:
+  lnmpnet:
+    external: false
+
