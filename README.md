@@ -39,5 +39,7 @@
 ![Image text](https://github.com/MichealJl/dnmp/blob/master/10.jpg)
 
 执行 
+
 ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
+
 flush privileges;
