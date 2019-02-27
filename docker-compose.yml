@@ -67,6 +67,15 @@ services:
     links:
       - php-fpm72:php72
       - php-fpm56:php56
+  ##Gogs####
+  gogs:
+    image: gogs/gogs
+    networks:
+      - lnmpnet
+    volumes:
+      - ${GOGS_DATA_PATH}:/data
+    ports:
+      - "${GOGS_PORT}:3000"
 networks:
   lnmpnet:
     external: false
