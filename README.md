@@ -8,7 +8,7 @@
 
 # 开始
 1、将项目clone到本地
-![Image text](https://github.com/MichealJl/dnmp/blob/master/1.jpg)
+![Image text](https://github.com/MichealJl/dnmp/blob/master/images/1.jpg)
 
 2、进入dnmp将env-example 重命名为.env
 
