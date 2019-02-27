@@ -67,7 +67,7 @@ services:
     links:
       - php-fpm72:php72
       - php-fpm56:php56
-  ##Gogs####
+  ####Gogs####
   gogs:
     image: gogs/gogs
     networks:
