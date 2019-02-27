@@ -6,6 +6,8 @@
 
 首先确保你安装了docker和docker-compse以及git
 
+目前只加了php5.6 和php7.2两个版本切换，如需扩展请自行照猫画虎
+
 # 开始
 1、将项目clone到本地
 ![Image text](https://github.com/MichealJl/dnmp/blob/master/images/1.jpg)
