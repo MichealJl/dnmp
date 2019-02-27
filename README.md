@@ -43,3 +43,19 @@
 ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
 
 flush privileges;
+
+# Gogs安装
+
+执行docker-compose up -d
+
+进入mysql容器创建Gogs数据库 CREATE DATABASE gogs CHARACTER SET utf8 COLLATE utf8_bin; 
+
+打开网页输入你的IP地址:你设置的Gogs端口号 进入安装安装向导页面
+
+设置参数
+
+![Image text](https://github.com/MichealJl/dnmp/blob/master/11.jpg)
+
+![Image text](https://github.com/MichealJl/dnmp/blob/master/12.jpg)
+
+![Image text](https://github.com/MichealJl/dnmp/blob/master/13.jpg)
