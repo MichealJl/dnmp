@@ -59,3 +59,4 @@ flush privileges;
 ![Image text](https://github.com/MichealJl/dnmp/blob/master/12.jpg)
 
 ![Image text](https://github.com/MichealJl/dnmp/blob/master/13.jpg)
+
