@@ -4,7 +4,7 @@
 
 在此之前先要了解docker一些基本用法 我学习docker的记录：https://jlmvp.cn/
 
-首先确保你安装了docker和docker-compse以及git
+首先确保你安装了docker和docker-compose以及git
 
 目前只加了php5.6 和php7.2两个版本切换，如需扩展请自行照猫画虎
 
