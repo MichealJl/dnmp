@@ -1,4 +1,4 @@
-version: '2'
+version: "3"
 services:
 ### mysql ###
   mysql:
@@ -8,7 +8,6 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PWD}
     volumes:
-      - ${MYSQL_CONFD_DIR}:/etc/mysql/conf.d
       - ${MYSQL_LOGS_PATH}:/logs
       - ${MYSQL_CNF_PATH}:/etc/mysql/my.cnf
     ports:
@@ -24,7 +23,12 @@ services:
       - "${REDIS_PORT}:6379"
 ### php7.2 fpm ###
   php-fpm72:
-    build: ./php72
+    build:
+      context: ./php72
+      args:
+        - INSTALL_SWOOLE=${INSTALL_SWOOLE}
+        - INSTALL_PHPREDIS=${INSTALL_PHPREDIS}
+        - INSTALL_IMAGEMAGICK=${INSTALL_IMAGEMAGICK}
     volumes:
       - ${APPLICATION}:/www
       - ${PHP72_INI_PATH}:/usr/local/etc/php/php.ini
@@ -38,7 +42,12 @@ services:
         - mysql
 ### php56 fpm ###
   php-fpm56:
-    build: ./php56
+    build:
+      context: ./php56
+      args:
+        - INSTALL_SWOOLE=${INSTALL_SWOOLE}
+        - INSTALL_PHPREDIS=${INSTALL_PHPREDIS}
+        - INSTALL_IMAGEMAGICK=${INSTALL_IMAGEMAGICK}
     volumes:
       - ${APPLICATION}:/www
       - ${PHP56_INI_PATH}:/usr/local/etc/php/php.ini
@@ -79,4 +88,3 @@ services:
 networks:
   lnmpnet:
     external: false
-
