@@ -3,7 +3,6 @@ APPLICATION=./project
 # mysql env
 MYSQL_VERSION=latest
 MYSQL_ROOT_PWD=root
-MYSQL_CONFD_DIR=./mysql/conf
 MYSQL_LOGS_PATH=./mysql/logs
 MYSQL_CNF_PATH=./mysql/my.cnf
 MYSQL_PORT=3306
@@ -21,7 +20,10 @@ PHP72_FPM_PORT=9000
 PHP56_INI_PATH=./php56/php.ini
 PHP56_LOGS_PATH=./php56/logs
 PHP56_FPM_PORT=9001
-
+#php extend
+INSTALL_SWOOLE=true
+INSTALL_PHPREDIS=true
+INSTALL_IMAGEMAGICK=true
 # nginx env
 NGINX_CONFD_DIR=./nginx/conf.d
 NGINX_LOGS_PATH=./nginx/wwwlogs
