@@ -14,7 +14,7 @@ RUN apt-get install libzip-dev zip unzip -y && \
     # Install the zip extension
     docker-php-ext-install zip mysqli pdo_mysql
 
-ARG INSTALL_PHPREDIS=true
+ARG INSTALL_PHPREDIS=${INSTALL_PHPREDIS}
 
 RUN if [ ${INSTALL_PHPREDIS} = true ]; then \
     # Install Php Redis Extension
@@ -23,7 +23,7 @@ RUN if [ ${INSTALL_PHPREDIS} = true ]; then \
     &&  docker-php-ext-enable redis \
 ;fi
 
-ARG INSTALL_SWOOLE=true
+ARG INSTALL_SWOOLE=${INSTALL_SWOOLE}
 
 RUN if [ ${INSTALL_SWOOLE} = true ]; then \
     # Install Php Swoole Extension
@@ -41,7 +41,7 @@ RUN if [ ${INSTALL_SWOOLE} = true ]; then \
 
 USER root
 
-ARG INSTALL_IMAGEMAGICK=false
+ARG INSTALL_IMAGEMAGICK=${INSTALL_IMAGEMAGICK}
 
 RUN if [ ${INSTALL_IMAGEMAGICK} = true ]; then \
     apt-get install -y libmagickwand-dev imagemagick && \
