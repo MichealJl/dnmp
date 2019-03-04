@@ -7,12 +7,13 @@ RUN apt-get update -yqq && \
 USER root
 
 RUN apt-get install libzip-dev zip unzip -y && \
-	apt-get install -y libpng-dev && \
+    apt-get install -y libfreetype6-dev libmcrypt-dev libjpeg-dev libpng-dev && \
     docker-php-ext-configure zip --with-libzip && \
-	# Install GD
-	docker-php-ext-install gd && \
+    # Install GD
+    docker-php-ext-configure gd --with-freetype-dir=/usr/include/freetype2 --with-png-dir=/usr/include --with-jpeg-dir=/usr/include && \
     # Install the zip extension
-    docker-php-ext-install zip mysqli pdo_mysql
+    docker-php-ext-install zip mysqli pdo_mysql gd
+
 
 ARG INSTALL_PHPREDIS=${INSTALL_PHPREDIS}
 
