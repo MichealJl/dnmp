@@ -16,7 +16,7 @@
 ### 3、配置env中你所需要设置的环境变量
 
 ### 4、在docker-compose.yml目录 执行docker-compose config 你可以看到完整配置信息
-![Image text](https://github.com/MichealJl/dnmp/blob/master/images/3.jpg)
+![Image text](https://github.com/MichealJl/dnmp/blob/master/images/14.jpg)
 
 ### 5、执行docker-compose up -d  （额。。安装php的那些扩展挺慢的 你可以酌情 修改php目录下的Dockerfile，等用的到那些扩展的时候 再装）**
 ![Image text](https://github.com/MichealJl/dnmp/blob/master/images/4.jpg)
@@ -25,13 +25,10 @@
 ![Image text](https://github.com/MichealJl/dnmp/blob/master/images/5.jpg)
 
 ### 6、修改nginx的配置文件 nginx/conf.d/default.conf
+
+![Image text](https://github.com/MichealJl/dnmp/blob/master/images/15.jpg)
+
 ![Image text](https://github.com/MichealJl/dnmp/blob/master/images/6.jpg)
-
-![Image text](https://github.com/MichealJl/dnmp/blob/master/images/7.jpg)
-
-![Image text](https://github.com/MichealJl/dnmp/blob/master/images/8.jpg)
-
-![Image text](https://github.com/MichealJl/dnmp/blob/master/images/9.jpg)
 
 ### 7、重启nginx服务
 
