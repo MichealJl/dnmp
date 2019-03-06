@@ -28,7 +28,7 @@
 
 ![Image text](https://github.com/MichealJl/dnmp/blob/master/images/15.jpg)
 
-**查看 容器php名称
+**查看 容器php名称**
 
  `docker ps | grep php |awk $'{print $2}'`
 
@@ -37,7 +37,7 @@
 ### 8、在你的项目目录下创建index.php 输出phpinfo();
 ![Image text](https://github.com/MichealJl/dnmp/blob/master/images/10.jpg)
 
-**结尾提示 如果你使用了mysql8.0以上版本会报如下错误
+**结尾提示 如果你使用了mysql8.0以上版本会报如下错误**
 
 connect error：The server requested authentication method unknown to the client
 
