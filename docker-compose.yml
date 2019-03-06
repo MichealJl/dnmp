@@ -37,9 +37,6 @@ services:
       - lnmpnet
     ports:
       - "${PHP72_FPM_PORT}:9000"
-    links:
-        - redis
-        - mysql
 ### php56 fpm ###
   php-fpm56:
     build:
@@ -56,9 +53,6 @@ services:
       - lnmpnet
     ports:
       - "${PHP56_FPM_PORT}:9000"
-    links:
-        - redis
-        - mysql
 ### nginx ###
   nginx:
     image: nginx:${NGINX_TAG}
@@ -73,10 +67,7 @@ services:
     ports:
       - "${NGINX_HTTP_PORT}:80"
       - "${NGINX_HTTPS_PORT}:443"
-    links:
-      - php-fpm72:php72
-      - php-fpm56:php56
-  ####Gogs###
+ ####Gogs###
   gogs:
     image: gogs/gogs
     networks:
