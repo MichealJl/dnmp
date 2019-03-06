@@ -28,7 +28,9 @@
 
 ![Image text](https://github.com/MichealJl/dnmp/blob/master/images/15.jpg)
 
-![Image text](https://github.com/MichealJl/dnmp/blob/master/images/6.jpg)
+**查看 容器php名称
+
+ `docker ps | grep php |awk $'{print $2}'`
 
 ### 7、重启nginx服务
 
