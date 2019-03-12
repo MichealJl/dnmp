@@ -30,7 +30,7 @@
 
 **查看 容器php名称**
 
- `docker ps | grep php |awk $'{print $2}'`
+ `docker ps | grep php |awk $'{print $11}'`
 
 ### 7、重启nginx服务
 
