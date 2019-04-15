@@ -29,6 +29,7 @@ services:
         - INSTALL_SWOOLE=${INSTALL_SWOOLE}
         - INSTALL_PHPREDIS=${INSTALL_PHPREDIS}
         - INSTALL_IMAGEMAGICK=${INSTALL_IMAGEMAGICK}
+				- INSTALL_AMQP=${INSTALL_AMQP}
     volumes:
       - ${APPLICATION}:/www
       - ${PHP72_INI_PATH}:/usr/local/etc/php/php.ini
@@ -76,6 +77,24 @@ services:
       - ${GOGS_DATA_PATH}:/data
     ports:
       - "${GOGS_PORT}:3000"
+###RabbitMQ###
+### RabbitMQ ###
+  rabbitmq:
+    build: ./rabbitmq
+    ports:
+      - "${RABBITMQ_HOST_PORT}:5672"
+      - "${RABBITMQ_MANAGEMENT_HTTP_HOST_PORT}:15672"
+      - "${RABBITMQ_MANAGEMENT_HTTPS_HOST_PORT}:15671"
+    privileged: true
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
+    depends_on:
+      - php-fpm72
+    volumes:
+      - $PWD/rabbitmq/data:/var/lib/rabbitmq
+    networks:
+      - lnmpnet
 networks:
   lnmpnet:
     external: false
