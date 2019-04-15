@@ -67,7 +67,9 @@ RUN if [ ${INSTALL_AMQP} = true ]; then \
     pecl install amqp && \
     docker-php-ext-enable amqp && \
     # Install the sockets extension
-    docker-php-ext-install sockets \
+    docker-php-ext-install sockets && \
+    # Install bcmath
+    docker-php-ext-install bcmath \
 ;fi	
 # Clean up
 RUN apt-get clean && \
