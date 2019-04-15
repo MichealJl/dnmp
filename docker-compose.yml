@@ -29,7 +29,7 @@ services:
         - INSTALL_SWOOLE=${INSTALL_SWOOLE}
         - INSTALL_PHPREDIS=${INSTALL_PHPREDIS}
         - INSTALL_IMAGEMAGICK=${INSTALL_IMAGEMAGICK}
-				- INSTALL_AMQP=${INSTALL_AMQP}
+	- INSTALL_AMQP=${INSTALL_AMQP}
     volumes:
       - ${APPLICATION}:/www
       - ${PHP72_INI_PATH}:/usr/local/etc/php/php.ini
