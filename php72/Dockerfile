@@ -2,7 +2,7 @@ FROM php:7.2-fpm
 
 RUN apt-get update -yqq && \
     apt-get install -y apt-utils openssl libssl-dev && \
-    pecl channel-update pecl.php.net && \
+    pecl channel-update pecl.php.net
     
 USER root
 
