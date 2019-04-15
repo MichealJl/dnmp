@@ -1,10 +1,9 @@
 FROM php:7.2-fpm
 
 RUN apt-get update -yqq && \
-    apt-get install -y apt-utils && \
+    apt-get install -y apt-utils openssl libssl-dev&& \
     pecl channel-update pecl.php.net && \
-		apt-get install openssl libssl-dev \
-
+    
 USER root
 
 RUN apt-get install libzip-dev zip unzip -y && \
