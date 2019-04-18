@@ -65,3 +65,5 @@ connect error：The server requested authentication method unknown to the client
 
 ![Image text](https://github.com/MichealJl/dnmp/blob/master/images/13.jpg)
 
+# RabbitMQ
+[rabbitmq page](https://learnku.com/articles/27548)
