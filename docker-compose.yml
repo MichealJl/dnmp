@@ -77,7 +77,6 @@ services:
       - ${GOGS_DATA_PATH}:/data
     ports:
       - "${GOGS_PORT}:3000"
-###RabbitMQ###
 ### RabbitMQ ###
   rabbitmq:
     build: ./rabbitmq
@@ -95,6 +94,39 @@ services:
       - $PWD/rabbitmq/data:/var/lib/rabbitmq
     networks:
       - lnmpnet
+### ElasticSearch ###
+  elasticsearch:
+    build:
+      context: ./elasticsearch
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms256m -Xmx256m -XX:-AssumeMP"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - $PWD/elasticsearch/data:/usr/share/elasticsearch/data
+    ports:
+      - "${ELASTICSEARCH_HOST_HTTP_PORT}:9200"
+      - "${ELASTICSEARCH_HOST_TRANSPORT_PORT}:9300"
+    depends_on:
+      - php-fpm72
+    networks:
+      - lnmpnet
+### ElasticSearch-head ###
+  es-head:
+    image: mobz/elasticsearch-head:5
+    volumes:
+      - $PWD/elasticsearch/plugins/head:/usr/src/app
+    ports:
+      - "${ELASTICSEARCH_HEAD_PORT}:9100"
+    depends_on:
+      - elasticsearch
+    networks:
+      - lnmpnet
+
 networks:
   lnmpnet:
     external: false
