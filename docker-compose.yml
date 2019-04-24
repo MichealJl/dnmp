@@ -119,7 +119,7 @@ services:
   es-head:
     image: mobz/elasticsearch-head:5
     volumes:
-      - $PWD/elasticsearch/plugins/head:/usr/src/app
+      - $PWD/elasticsearch/plugins/head/_site:/usr/src/app/_site
     ports:
       - "${ELASTICSEARCH_HEAD_PORT}:9100"
     depends_on:
