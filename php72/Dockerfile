@@ -50,7 +50,7 @@ RUN if [ ${INSTALL_IMAGEMAGICK} = true ]; then \
 ;fi
 
 #amqp install
-ARG INSTALL_AMQP=false
+ARG INSTALL_AMQP=${INSTALL_AMQP}
 
 RUN if [ ${INSTALL_AMQP} = true ]; then \
     # download and install manually, to make sure it's compatible with ampq installed by pecl later
