@@ -6,13 +6,20 @@ RUN apt-get update -yqq && \
     
 USER root
 
+    # Install the zip mysqli pdo_mysql extension
 RUN apt-get install libzip-dev zip unzip -y && \
-    apt-get install -y libfreetype6-dev libmcrypt-dev libjpeg-dev libpng-dev && \
     docker-php-ext-configure zip --with-libzip && \
-    # Install GD
-    docker-php-ext-configure gd --with-freetype-dir=/usr/include/freetype2 --with-png-dir=/usr/include --with-jpeg-dir=/usr/include && \
-    # Install the zip extension
-    docker-php-ext-install zip mysqli pdo_mysql gd
+    docker-php-ext-install zip mysqli pdo_mysql
+
+
+   # install gd iconv extension
+#RUN apt-get update && apt-get install -y \
+#      libfreetype6-dev \
+#      libjpeg62-turbo-dev \
+#      libpng-dev \
+#    && docker-php-ext-install -j$(nproc) iconv \
+#    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+#    && docker-php-ext-install -j$(nproc) gd
 
 ARG INSTALL_PHPREDIS=${INSTALL_PHPREDIS}
 
