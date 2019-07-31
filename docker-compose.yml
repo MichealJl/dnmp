@@ -21,6 +21,15 @@ services:
       - lnmpnet
     ports:
       - "${REDIS_PORT}:6379"
+### MongoDb ###
+  mongo:
+    image: mongo:${MONGO_VERSION}
+    ports:
+      - "${MONGO_HOST_PORT}:27017"
+    volumes:
+      - ${MONGO_DATA_DB_DIR}:/data/db
+    networks:
+      - lnmpnet
 ### php7.2 fpm ###
   php-fpm72:
     build:
@@ -30,6 +39,8 @@ services:
         - INSTALL_SWOOLE=${INSTALL_SWOOLE}
         - INSTALL_PHPREDIS=${INSTALL_PHPREDIS}
         - INSTALL_IMAGEMAGICK=${INSTALL_IMAGEMAGICK}
+        - INSTALL_MONGO=${INSTALL_TIDEWAYS_XHPROF}
+        - INSTALL_TIDEWAYS_XHPROF=${INSTALL_TIDEWAYS_XHPROF}
     volumes:
       - ${APPLICATION}:/www
       - ${PHP72_INI_PATH}:/usr/local/etc/php/php.ini
@@ -126,7 +137,14 @@ services:
       - elasticsearch
     networks:
       - lnmpnet
-
+###tideways###
+  tideways:
+    build: ./tideways
+    networks:
+      - lnmpnet
+    ports:
+      - "9135:9135"
+      - "8135:8135"
 networks:
   lnmpnet:
     external: false
