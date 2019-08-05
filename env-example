@@ -3,6 +3,7 @@ APPLICATION=./project
 # mysql env
 MYSQL_VERSION=latest
 MYSQL_ROOT_PWD=root
+MYSQL_DATA_PATH=./mysql/data
 MYSQL_LOGS_PATH=./mysql/logs
 MYSQL_CNF_PATH=./mysql/my.cnf
 MYSQL_PORT=3306
