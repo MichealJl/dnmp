@@ -9,6 +9,7 @@ services:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PWD}
     volumes:
       - ${MYSQL_LOGS_PATH}:/logs
+      - ${MYSQL_DATA_PATH}:/data
       - ${MYSQL_CNF_PATH}:/etc/mysql/my.cnf
     ports:
       - "${MYSQL_PORT}:3306"
