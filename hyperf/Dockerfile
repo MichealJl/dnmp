@@ -18,9 +18,11 @@ RUN apt-get install libzip-dev zip unzip -y && \
     docker-php-ext-install zip mysqli pdo_mysql
 
     # Install Php Redis Extension
-RUN printf "\n" | pecl install -o -f redis \
-    &&  rm -rf /tmp/pear \
-    &&  docker-php-ext-enable redis
+RUN curl 'http://pecl.php.net/get/redis-5.1.1.tgz' -o /tmp/redis-5.1.1.tgz \
+    && cd /tmp \
+    && pecl install redis-5.1.1.tgz \
+    && rm -rf /tmp/redis-5.1.1.tgz \
+    && docker-php-ext-enable redis
 
 # Install Php Swoole Extension
 #ENV PHPIZE_DEPS="autoconf dpkg-dev dpkg file g++ gcc libc-dev make php7-dev php7-pear pkgconf re2c pcre-dev pcre2-dev zlib-dev libtool automake"
