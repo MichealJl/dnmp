@@ -54,6 +54,7 @@ RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     rm /var/log/lastlog /var/log/faillog
 
-ENTRYPOINT ["php", "/www/hyperf-api/bin/hyperf.php", "start"]
+#注意此处/www/hyperf-api/bin/hyperf.php  写实际容器hyperf.php的路径
+ENTRYPOINT ["php", "/www/hyperf/bin/hyperf.php", "start"]
 
 EXPOSE 9501
