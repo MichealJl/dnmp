@@ -13,6 +13,10 @@ REDIS_VERSION=latest
 REDIS_DATA=./redis/data
 REDIS_PORT=6379
 
+# hyperf
+HYPERF_INI_PATH=./hyperf/php.ini
+HYPERF_LOGS_PATH=./hyperf/logs
+
 # php-fpm 7.2 
 PHP72_INI_PATH=./php72/php.ini
 PHP72_LOGS_PATH=./php72/logs
