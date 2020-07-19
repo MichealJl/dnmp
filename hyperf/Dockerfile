@@ -48,26 +48,6 @@ RUN cd /tmp \
     && php --ri swoole
 
 USER root
-    
-#amqp install
-
-    # download and install manually, to make sure it's compatible with ampq installed by pecl later
-    # install cmake first
-RUN apt-get update && apt-get -y install cmake && \
-    curl -L -o /tmp/rabbitmq-c.tar.gz https://github.com/alanxz/rabbitmq-c/archive/master.tar.gz && \
-    mkdir -p rabbitmq-c && \
-    tar -C rabbitmq-c -zxvf /tmp/rabbitmq-c.tar.gz --strip 1 && \
-    cd rabbitmq-c/ && \
-    mkdir _build && cd _build/ && \
-    cmake .. && \
-    cmake --build . --target install && \
-    # Install the amqp extension
-    pecl install amqp && \
-    docker-php-ext-enable amqp && \
-    # Install the sockets extension
-    docker-php-ext-install sockets && \
-    # Install bcmath
-    docker-php-ext-install bcmath
 
 # Clean up
 RUN apt-get clean && \
