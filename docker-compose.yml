@@ -31,6 +31,16 @@ services:
       - ${MONGO_DATA_DB_DIR}:/data/db
     networks:
       - lnmpnet
+### hyperf env ###
+  hyperf:
+    build:
+      context: ./hyperf
+    volumes:
+      - ${APPLICATION}:/www
+      - ${HYPERF_INI_PATH}:/usr/local/etc/php/php.ini
+      - ${HYPERF_LOGS_PATH}:/logs
+    networks:
+      - lnmpnet
 ### php7.2 fpm ###
   php-fpm72:
     build:
