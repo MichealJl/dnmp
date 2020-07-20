@@ -19,24 +19,24 @@ RUN apt-get install libzip-dev zip unzip -y && \
 
     # Install Php Redis Extension
 RUN curl 'http://pecl.php.net/get/redis-5.1.1.tgz' -o /tmp/redis-5.1.1.tgz \
-	&& cd /tmp \
-	&& pecl install redis-5.1.1.tgz \
+    && cd /tmp \
+    && pecl install redis-5.1.1.tgz \
     && rm -rf /tmp/redis-5.1.1.tgz \
     && docker-php-ext-enable redis
 
-	# Install Amqp extension
+    # Install Amqp extension
 RUN apt-get -y install cmake && \
-	curl -L -o /tmp/rabbitmq-c.tar.gz https://github.com/alanxz/rabbitmq-c/archive/master.tar.gz && \
-	mkdir -p rabbitmq-c && \
-	tar -C rabbitmq-c -zxvf /tmp/rabbitmq-c.tar.gz --strip 1 && \
+    curl -L -o /tmp/rabbitmq-c.tar.gz https://github.com/alanxz/rabbitmq-c/archive/master.tar.gz && \
+    mkdir -p rabbitmq-c && \
+    tar -C rabbitmq-c -zxvf /tmp/rabbitmq-c.tar.gz --strip 1 && \
     cd rabbitmq-c/ && \
     mkdir _build && cd _build/ && \
     cmake .. && \
     cmake --build . --target install && \
-	pecl install amqp && \
-	docker-php-ext-enable amqp && \
-	# Install bcmath
-	docker-php-ext-install bcmath
+    pecl install amqp && \
+    docker-php-ext-enable amqp && \
+    # Install bcmath
+    docker-php-ext-install bcmath
 
 RUN cd /tmp \
     && curl -SL "https://github.com/swoole/swoole-src/archive/v4.5.2.tar.gz" -o swoole.tar.gz \
@@ -60,7 +60,7 @@ RUN cd /tmp \
 
 USER root
 
-# Clean up
+    # Clean up
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     rm /var/log/lastlog /var/log/faillog
