@@ -123,6 +123,8 @@ services:
     environment:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
+      - node.name=docker-node
+      - cluster.initial_master_nodes=docker-node
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
       memlock:
@@ -130,6 +132,7 @@ services:
         hard: -1
     volumes:
       - $PWD/elasticsearch/data:/usr/share/elasticsearch/data
+      - $PWD/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
     ports:
       - "${ELASTICSEARCH_HOST_HTTP_PORT}:9200"
       - "${ELASTICSEARCH_HOST_TRANSPORT_PORT}:9300"
